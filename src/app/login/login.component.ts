@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('phone', phone);
           localStorage.setItem('address', address);
           await this.router.navigate(['/profile']);
-          this.toastr.success('Welcome '+ firstname + "  :-)");
+          this.toastr.success('Welcome '+ name + "  :-)");
           //await location.reload();
           
         },
