@@ -24,17 +24,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let person of userlist ; let i = index ">
-                        <th>{{ person['firstname'] }}</th>
-                        <th>{{ person['name'] }}</th>
-                        <th>{{ person['lastname'] }}</th>
-                        <th>{{ person['mail'] }}</th>
-                        <th>{{ person['phone'] }}</th>
-                        <th>{{ person['address'] }}</th>
+                    <tr *ngFor="let user of userlist ; let i = index ">
+                        <th>
+                            {{ user['firstname'] }}<br/>
+                            {{ user['roles'] }}
+                        </th>
+                        <th>{{ user['name'] }}</th>
+                        <th>{{ user['lastname'] }}</th>
+                        <th>{{ user['mail'] }}</th>
+                        <th>{{ user['phone'] }}</th>
+                        <th>{{ user['address'] }}</th>
                     <td>
                         
-                        <button (click)="delete($event)" name="edit" id="{{ person['id'] }}" class="btn btn-danger mx-3"  >Delete</button>
-                        <button class="btn btn-warning" [routerLink]="['/uupdate',person['id']]">Update</button>
+                        <button (click)="delete($event)" name="edit" id="{{ user['id'] }}" class="btn btn-danger mx-3"  >Delete</button>
+                        <button class="btn btn-warning" class="btn btn-warning mx-3" [routerLink]="['/uupdate',user['id']]">Update</button>
+                        <button class="btn btn-info " [routerLink]="['/uupdateadmin',user['id']]">Admin update</button>
+                        
                             
                     </td>
                     </tr>

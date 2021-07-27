@@ -55,7 +55,7 @@ export class UupdateComponent implements OnInit {
      ]),
      address: new FormControl('',[
        Validators.required,
-       Validators.minLength(5),
+       Validators.minLength(2),
        Validators.maxLength(30)
      ])
    
@@ -103,43 +103,10 @@ export class UupdateComponent implements OnInit {
       //data.phone,
       //data.address);
        
-    if(isLoggedIn && isAdmin)
-    {
-      let data = this.updateForm.value ;
-      let user = new UserUpdate( data.firstname,
-        data.lastname, 
-        data.password,
-        data.name,
-        data.mail,
-        data.phone,
-        data.address);
-        this.userService.uupdateAdmin(user,id).subscribe(
-        result=>{
-        const firstname = data.firstname;
-        const lastname = data.lastname;
-        const name = data.name;
-        const mail = data.mail;
-        const phone = data.phone;
-        const address = data.address;
-        //const name = res.name;
-        localStorage.setItem('firstname', firstname);
-        localStorage.setItem('lastname', lastname);
-        localStorage.setItem('name', name);
-        localStorage.setItem('mail', mail);
-        localStorage.setItem('phone', phone);
-        localStorage.setItem('address', address);
-        this.toastr.success('Information of user '+data.firstname+' updated successfully !');
-        this.router.navigate(['/userliste'])
-        },
-      error=>{
-        console.log(error);
-        console.log('access_toke: ', localStorage.getItem('Authorization'));
-        this.toastr.error('Account ADMIN with Username '+ data.firstname +' already exist !');
-      }
-    )
-  }else if (isLoggedIn && isAdmin == false){
+    if (isLoggedIn){
     let data = this.updateForm.value ;
-    let user = new UserUpdate( data.lastname, 
+    let user = new UserUpdate( data.firstname,
+      data.lastname, 
       data.password,
       data.name,
       data.mail,

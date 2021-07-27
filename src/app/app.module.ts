@@ -14,6 +14,7 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 import { ProfileComponent } from './profile/profile.component';
 import { UupdateComponent } from './uupdate/uupdate.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UupdateadminComponent } from './uupdateadmin/uupdateadmin.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { UserListComponent } from './user-list/user-list.component';
     TestComponent,
     ProfileComponent,
     UupdateComponent,
-    UserListComponent
+    UserListComponent,
+    UupdateadminComponent
   ],
   imports: [
     BrowserModule,

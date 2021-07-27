@@ -9,6 +9,7 @@ import { UupdateComponent } from './uupdate/uupdate.component';
 import { AuthGuard } from './auth.guard';
 import { UserListComponent } from './user-list/user-list.component';
 import { AdminGuard } from './admin.guard';
+import { UupdateadminComponent } from './uupdateadmin/uupdateadmin.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,12 @@ const routes: Routes = [
   },
   {
     path:'userliste',
-    component: UserListComponent,
+    component: UserListComponent, 
+    canActivate :[AuthGuard,AdminGuard]
+  },
+  {
+    path:'uupdateadmin/:id',
+    component: UupdateadminComponent, 
     canActivate :[AuthGuard,AdminGuard]
   }
 ];

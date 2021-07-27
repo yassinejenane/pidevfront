@@ -4,6 +4,7 @@ import { User } from '.././user';
 import { AuthenticationRequest } from '.././AuthenticationRequest';
 import { UserService } from '../user.service';
 import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 
 
@@ -18,6 +19,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class ProfileComponent implements OnInit {
   //private firstname : string ;
+  isAdmin = false;
   firstname = <string>localStorage.getItem("firstname");
   name = <string>localStorage.getItem("name");
   lastname = <string>localStorage.getItem("lastname");
@@ -25,20 +27,17 @@ export class ProfileComponent implements OnInit {
   phone = <string>localStorage.getItem("phone");
   address = <string>localStorage.getItem("address");
   id = <string>localStorage.getItem("IdUser");
-  constructor(private userService : UserService) { 
+
+  
+  constructor(private userService : UserService, private router:Router) { 
     //this.firstname = firstname;
   }
 
   ngOnInit(): void {
-    this.info();
+    
+    this.isAdmin = this.userService.isAdmin();
   }
 
-  info(){
-  console.log("helloooo",localStorage);
-  //this.firstname =  <string>localStorage.getItem("firstname");
-  //const IdUser = <string>localStorage.getItem("firstname");
   
-  }
-
 }
 
