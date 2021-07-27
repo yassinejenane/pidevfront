@@ -66,13 +66,14 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('phone', phone);
           localStorage.setItem('address', address);
           await this.router.navigate(['/profile']);
+          this.toastr.success('Welcome '+ firstname + "  :-)");
           //await location.reload();
           
         },
         err => {
           
           console.log(err);
-          this.toastr.error('Check your credentils');
+          this.toastr.error('Check your credentials .. !!');
         }
       );  
         
