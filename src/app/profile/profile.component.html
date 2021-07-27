@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">  
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Username</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ firstname }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">First name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                    {{ name }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Last name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                        {{ lastname }}
+                                </div>
+                            </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mail</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                    {{ mail }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mobile</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ phone }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{address}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
+                                <button class="btn btn-warning" [routerLink]="['/uupdate',id]">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+                 
+                </div>
+            </div>
+        </div>
+
+    </div>

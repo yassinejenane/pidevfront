@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form [formGroup]="updateForm" (ngSubmit)="uupdate()">
+      <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input *ngIf="!isAdmin" type="text" class="form-control" id="firstname1" formControlName="firstname" readonly />
+          <input *ngIf="isAdmin" type="text" class="form-control" id="username" formControlName="firstname" />
+          <div *ngIf="firstname?.touched && firstname?.invalid">
+              <small *ngIf ="firstname?.errors?.required" class="text-danger">Username is required <br/></small>
+              <small *ngIf ="firstname?.errors?.minlength" class="text-danger">Username must contain 4 characters at least</small>
+          </div>
+      </div>
+     
+      
+      <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First name</label>
+            <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="emailHelp">
+            <div *ngIf="name?.touched && name?.invalid">
+                <small *ngIf ="name?.errors?.required" class="text-danger">Firstname is required <br/></small>
+                <small *ngIf ="name?.errors?.minlength" class="text-danger">Firstname must contain 4 characters at least</small>
+                <small *ngIf ="name?.errors?.pattern" class="text-danger">Invalid Firstname<br/></small> <br/>
+            </div>
+          </div>
+      
+          <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lastname" formControlName="lastname" aria-describedby="emailHelp">
+                <div *ngIf="lastname?.touched && firstname?.invalid">
+                    <small *ngIf ="lastname?.errors?.required" class="text-danger">Lastname is required <br/></small>
+                    <small *ngIf ="lastname?.errors?.minlength" class="text-danger">Lastname must contain 4 characters at least</small>
+                    <small *ngIf ="lastname?.errors?.pattern" class="text-danger">Invalid Lastname<br/></small> <br/>
+                </div>
+              </div>
+              <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                    <input type="text" class="form-control" id="mail" formControlName="mail" aria-describedby="emailHelp">
+                    <div *ngIf="mail?.touched && mail?.invalid">
+                        <small *ngIf ="mail?.errors?.required" class="text-danger">Mail is required <br/></small>
+                        <small *ngIf ="mail?.errors?.email" class="text-danger">Invalid mail<br/></small> <br/>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Mobile</label>
+                        <input type="text" class="form-control" id="mobile" formControlName="phone" aria-describedby="emailHelp">
+                        <div *ngIf="phone?.touched && phone?.invalid">
+                            <small *ngIf ="phone?.errors?.required" class="text-danger">Mobile number is required <br/></small>
+                            <small *ngIf ="phone?.errors?.minlength" class="text-danger">Mobile must contain 8 numbers at least<br/></small>
+                            <small *ngIf ="phone?.errors?.maxlength" class="text-danger">Mobile must contain 13 numbers at max<br/></small>
+                            <small *ngIf ="phone?.errors?.pattern" class="text-danger">Mobile number should contain only numbers<br/></small>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Address</label>
+                            <input  type="text" class="form-control" id="address" formControlName="address" aria-describedby="emailHelp" > 
+                            <div *ngIf="address?.touched && address?.invalid">
+                                <small *ngIf ="address?.errors?.required" class="text-danger">Address is required <br/></small>
+                                <small *ngIf ="address?.errors?.minlength" class="text-danger">Address must contain 5 character at least<br/></small>
+                                <small *ngIf ="address?.errors?.maxlength" class="text-danger">Address can't depasse 30 characters<br/></small>
+                            </div>
+                          </div>
+              
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"  placeholder="Your password here !">Password</label>
+        <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" >
+        <div *ngIf="password?.touched && password?.invalid">
+            <small *ngIf ="password?.errors?.required" class="text-danger">password is required <br/></small>
+            <small *ngIf ="password?.errors?.minlength" class="text-danger">password must contain 4 characters at least</small> 
+        </div>
+      </div>
+
+      <div class="mb-3">
+          <label for="repeatPassword1" class="form-label"  placeholder="Your password here !">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="repeatpassword" id="confirmPassword1" >
+          <div *ngIf="repeatpassword?.touched && repeatpassword?.invalid">
+              <small *ngIf ="repeatpassword?.errors?.required" class="text-danger">Confirm password is required <br/></small>
+              <small *ngIf ="repeatpassword?.errors?.minlength" class="text-danger">Confirm password must contain 4 characters at least</small> 
+          </div>
+          <div *ngIf="repeatpassword?.valid && repeatpassword?.value != password?.value" class="text-danger">
+            The password and Confirm password are different !
+          </div>
+        </div>
+      <button type="submit" class="btn btn-primary"[disabled]="updateForm?.invalid || repeatpassword?.value != password?.value ">Update</button>
+    </form>
+        
+</div>
+
+<app-footer></app-footer>

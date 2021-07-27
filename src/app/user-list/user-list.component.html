@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="container my-5">
+
+    <div class="row">
+        <div class="col">
+            <h1>User List</h1>
+            <button class="btn btn-primary my-3" [routerLink]="['/register']">Add</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div *ngIf="userlist.length == 0" class="alert alert-warning">No people found</div>
+            <table *ngIf="userlist.length > 0" class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Mail</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of userlist ; let i = index ">
+                        <th>{{ person['firstname'] }}</th>
+                        <th>{{ person['name'] }}</th>
+                        <th>{{ person['lastname'] }}</th>
+                        <th>{{ person['mail'] }}</th>
+                        <th>{{ person['phone'] }}</th>
+                        <th>{{ person['address'] }}</th>
+                    <td>
+                        
+                        <button (click)="delete($event)" name="edit" id="{{ person['id'] }}" class="btn btn-danger mx-3"  >Delete</button>
+                        <button class="btn btn-warning" [routerLink]="['/uupdate',person['id']]">Update</button>
+                            
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

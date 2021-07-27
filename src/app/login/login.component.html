@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="email" class="form-control" id="username" formControlName="firstname" aria-describedby="emailHelp">
+          <div *ngIf="firstname?.touched && firstname?.invalid">
+              <small *ngIf ="firstname?.errors?.required" class="text-danger">username is required <br/></small> 
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" placeholder="Your password here !">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+          <div *ngIf="password?.touched && password?.invalid">
+              <small *ngIf ="password?.errors?.required" class="text-danger">password is required <br/></small>
+              <small *ngIf ="password?.errors?.minlength" class="text-danger">password must contain 4 characters at least</small> 
+          </div>
+        </div>
+        
+        <button type="submit"  class="btn btn-primary" [disabled]="loginForm?.invalid">Login</button>
+
+      </form>
+
+    </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<app-footer></app-footer>
